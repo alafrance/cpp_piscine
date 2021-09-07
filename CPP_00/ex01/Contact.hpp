@@ -7,19 +7,25 @@ class Contact {
 		std::string _firstname;
 		std::string _lastname;
 		std::string _nickname;
-		int			_phone_number;
-		std::string _darkest_secret;
+		int 		_phoneNumber;
+		std::string _darkestSecret;
+		std::string	input(std::string);
 	public:
-		Contact(void);
-		std::string getFirstname();
-		std::string getLastname();
-		std::string getDarkest_secret();
-		std::string getNickname();
-		int 		getPhone_number();
+		Contact();
+		// Accessor
+		std::string getFirstname() const;
+		std::string getLastname() const;
+		std::string getNickname() const;
+		int 		getPhoneNumber() const;
+		std::string getDarkestSecret() const;
 		void 		setFirstname(std::string);
 		void 		setLastname(std::string);
-		void 		setDarkest_secret(std::string);
 		void 		setNickname(std::string);
-		void 		setPhone_number(int);
+		void 		setPhoneNumber(int);
+		void 		setDarkestSecret(std::string);
+
+		// Fcts
+		void		initContact();
+		void		displayContact();
 };
 #endif

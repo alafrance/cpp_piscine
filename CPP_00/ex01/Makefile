@@ -6,7 +6,7 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/09/06 14:31:31 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/09/07 13:45:18 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ BIN				= $(SRC:%.cpp=$(BIN_PATH)/%.o)
 
 CC				= clang++
 RM				= rm -rf
-FLAGS			= -std=c++98 #-Wall -Wextra  -Werror
+FLAGS			= -std=c++98 -Wall -Wextra  -Werror
 
 all:  	${NAME}
 

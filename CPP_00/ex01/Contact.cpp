@@ -1,46 +1,69 @@
 #include "Contact.hpp"
 # include <iostream>
 
-Contact::Contact() {
-       
+Contact::Contact(){
 }
 
-std::string Contact::getFirstname() {
-    return _firstname;
+std::string    Contact::input(std::string prompt) {
+	std::string buf;
+
+	std::cout << prompt;
+	std::getline(std::cin, buf);
+	return buf;
 }
 
-std::string Contact::getLastname() {
-    return _lastname;
+void    Contact::initContact() {
+	setFirstname(input("Firstname : "));
+	setLastname(input("Lastname : "));
+	setNickname(input("Nickname : "));
+	setPhoneNumber(atoi(input("Phone number : ").c_str()));
+	setDarkestSecret(input("Darkest secret : "));
 }
 
-std::string Contact::getDarkest_secret() {
-    return _darkest_secret;
+void    Contact::displayContact() {
+	std::cout << "Firstname : " << getFirstname() << std::endl;
+	std::cout << "Lastname : " << getLastname() << std::endl;
+	std::cout << "Nickname : " << getNickname() << std::endl;
+	std::cout << "Phone number : " << getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret : " << getDarkestSecret() << std::endl;
 }
 
-std::string Contact::getNickname() {
-    return _nickname;
+std::string Contact::getFirstname() const {
+	return _firstname;
 }
 
-int 		Contact::getPhone_number() {
-    return _phone_number;
+std::string Contact::getLastname() const {
+	return _lastname;
+}
+
+std::string Contact::getDarkestSecret() const {
+	return _darkestSecret;
+}
+
+std::string Contact::getNickname() const {
+	return _nickname;
+}
+
+int 		Contact::getPhoneNumber() const {
+	return _phoneNumber;
 }
 
 void 		Contact::setFirstname(std::string firstname){
-    _firstname =  firstname;
+	_firstname =  firstname;
 }
 
 void 		Contact::setLastname(std::string lastname) {
-    _lastname = lastname;
+	_lastname = lastname;
 }
 
-void 		Contact::setDarkest_secret(std::string darkest_secret) {
-    _darkest_secret = darkest_secret;
+void 		Contact::setDarkestSecret(std::string darkest_secret) {
+	_darkestSecret = darkest_secret;
 }
 
 void 		Contact::setNickname(std::string nickname) {
-    _nickname = nickname;
+	_nickname = nickname;
 }
 
-void 		Contact::setPhone_number(int phone_number) {
-    _phone_number = phone_number;
+void 		Contact::setPhoneNumber(int phone_number) {
+	_phoneNumber = phone_number;
 }

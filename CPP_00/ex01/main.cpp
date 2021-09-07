@@ -2,17 +2,20 @@
 # include <iostream>
 
 int main() {
+	std::string buf = "";
 	bool loop = true;
-	while (loop) {
-		std::string line;
-		std::cin >> line;
-		if (std::strcmp(line.c_str(), "ADD")) {
+	Phonebook phonebook;
 
-		} else if (std::strcmp(line.c_str(), "SEARCH")) {
-
-		} else if (std::strcmp(line.c_str(), "EXIT")) {
+	std::cout << "Phonebook > ";
+	while (std::getline(std::cin, buf) && buf != "EXIT" && buf != "exit") {
+		if (buf == "ADD" || buf == "add") {
+			phonebook.ft_add();
+		} else if (buf ==  "SEARCH" || buf == "search") {
+			phonebook.ft_search();
+		} else if (buf ==  "EXIT" || buf == "exit") {
 			loop = false;
 		}
-		std::cout << line.c_str();
-	} 
+		buf = "";
+		std::cout << "Phonebook > ";
+	}
 }
