@@ -7,10 +7,11 @@ class Phonebook {
 	private:
 		int			nbContact;
 		Contact		_Contact[8];
+		bool		_isDigit(std::string);
 	public:
 		Phonebook(void);
 		Contact*			getContact(void);
-		std::string				format_string(std::string);
+		void				print_format_string(std::string);
 		void 				ft_add(void);
 		void 				ft_search(void);
 };

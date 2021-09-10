@@ -6,15 +6,15 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/09/08 13:32:58 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/09/10 14:36:12 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= account
+NAME			= replace
 
-FILES			= Account.cpp tests.cpp
+FILES			= main.cpp
 
-INC_FILES		= Account.hpp
+INC_FILES		= 
 INC_PATH		= .
 INC				= $(addprefix ${INC_PATH}/, ${INC_FILES})
 

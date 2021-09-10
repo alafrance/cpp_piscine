@@ -9,7 +9,8 @@ class Contact {
 		std::string _nickname;
 		int 		_phoneNumber;
 		std::string _darkestSecret;
-		std::string	input(std::string);
+		std::string	input(std::string, bool);
+		bool		_isDigit(std::string);
 	public:
 		Contact();
 		// Accessor

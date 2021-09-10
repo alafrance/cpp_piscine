@@ -2,22 +2,34 @@
 # include <iostream>
 
 Contact::Contact(){
+
 }
 
-std::string    Contact::input(std::string prompt) {
+bool	Contact::_isDigit(std::string str) {
+	for (unsigned long i = 0 ; i < str.size() ; i++)
+		if (!std::isdigit(str[i]))
+			return (false);
+	return (true);
+}
+
+std::string    Contact::input(std::string prompt, bool need_number) {
 	std::string buf;
 
 	std::cout << prompt;
-	std::getline(std::cin, buf);
+	while (std::getline(std::cin, buf))
+		if ((need_number && !_isDigit(buf)) || buf == "")
+			std::cout << "Wrong input" << std::endl << prompt;
+		else
+			break;
 	return buf;
 }
 
 void    Contact::initContact() {
-	setFirstname(input("Firstname : "));
-	setLastname(input("Lastname : "));
-	setNickname(input("Nickname : "));
-	setPhoneNumber(atoi(input("Phone number : ").c_str()));
-	setDarkestSecret(input("Darkest secret : "));
+	setFirstname(input("Firstname : ", 0));
+	setLastname(input("Lastname : ", 0));
+	setNickname(input("Nickname : ", 0));
+	setPhoneNumber(atoi(input("Phone number : ", 1).c_str()));
+	setDarkestSecret(input("Darkest secret : ", 0));
 }
 
 void    Contact::displayContact() {

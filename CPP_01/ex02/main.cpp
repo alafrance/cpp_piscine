@@ -5,24 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/06 13:07:29 by alafranc          #+#    #+#             */
-/*   Updated: 2021/09/07 13:04:59 by alafranc         ###   ########lyon.fr   */
+/*   Created: 2021/09/09 14:40:36 by alafranc          #+#    #+#             */
+/*   Updated: 2021/09/09 14:51:29 by alafranc         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sample.hpp"
 #include <iostream>
 
 int main() {
-    Sample instance;
-    Sample *instancep = &instance;
-    
-    int *blablou = NULL;
-    void (Sample::*f)(void) const;
-    instance.foo = 0;
-    blablou = &instance.foo;
-
-    f = &Sample::bar;
-    (instance.*f)();
-    (instancep->*f)();
+    std::string string = "HI THIS IS BRAIN";
+    std::string *stringPTR = &string;
+    std::string &stringREF = string;
+    std::cout << "Address str:" << std::endl << "With str: " << &string << std::endl << "With ptr: " << stringPTR << std::endl << "With ref: " << &stringREF << std::endl;
+    std::cout << "STRING:" << std::endl << "With ptr: " << *stringPTR << std::endl << "With ref: " << stringREF << std::endl;
 }
