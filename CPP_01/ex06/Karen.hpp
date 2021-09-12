@@ -1,3 +1,5 @@
+#ifndef KAREN
+#define KAREN
 #include <iostream>
 
 class Karen {
@@ -11,3 +13,5 @@ private:
 	void warning(void);
 	void error(void);
 };
+
+#endif
