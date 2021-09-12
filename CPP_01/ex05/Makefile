@@ -6,15 +6,15 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/09/09 13:48:44 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/09/12 15:25:54 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= 
+NAME			= karen
 
-FILES			= main.cpp
+FILES			= main.cpp Karen.cpp
 
-INC_FILES		= 
+INC_FILES		= Karen.hpp
 INC_PATH		= .
 INC				= $(addprefix ${INC_PATH}/, ${INC_FILES})
 
