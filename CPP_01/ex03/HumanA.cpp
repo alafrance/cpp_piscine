@@ -8,7 +8,7 @@ HumanA::~HumanA() {
 
 }
 
-std::string HumanA::getName() {
+const std::string HumanA::getName() {
 	return _name;
 }
 
@@ -16,7 +16,7 @@ void		HumanA::setName(std::string name) {
 	_name = name;
 }
 
-Weapon		HumanA::getWeapon() {
+const Weapon		HumanA::getWeapon() {
 	return _weapon;
 }
 

@@ -12,6 +12,8 @@ private:
 	void info(void);
 	void warning(void);
 	void error(void);
+	typedef void (Karen::*ptrMemFunc) (void);
+	void	display_level(std::string header, ptrMemFunc func);
 };
 
 #endif

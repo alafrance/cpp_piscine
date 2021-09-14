@@ -13,9 +13,10 @@ char	*readFile(std::string filename) {
 	}
 	ifs.seekg(0, ifs.end);
 	length = ifs.tellg();
-	buf = new char[length];
+	buf = new char[length + 1];
 	ifs.seekg(0, ifs.beg);
 	ifs.read(buf, length);
+	buf[length] = '\0';
 	ifs.close();
 	return (buf);
 }
@@ -23,7 +24,7 @@ char	*readFile(std::string filename) {
 void	replace(std::string filename, std::string s1, std::string s2)
 {
 	char *buf;
-	int pos;
+	size_t pos = 0;
 	if (!(buf = readFile(filename))) // READ FILE IN BUFFER
 		return ;
 
@@ -31,10 +32,11 @@ void	replace(std::string filename, std::string s1, std::string s2)
 	std::string file(buf); // CAST BUFFER INTO STD::STRING TO DO INSERT AND ERASE
 	newFilename = filename.substr(0, filename.find_last_of(".")) + ".replace"; // CREATE FILENAME.REPLACE
   	std::ofstream ofs (newFilename);
-	while ((pos = file.find(s1)) != -1)
+	while ((pos = file.find(s1, pos)) != std::string::npos)
 	{
 		file.erase(pos, s1.size());
 		file.insert(pos, s2);
+		pos += s2.length();
 	}
 	ofs << file;
 	ofs.close();

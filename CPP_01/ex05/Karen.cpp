@@ -26,24 +26,16 @@ void Karen::error(void) {
 }
 
 void Karen::complain( std::string level ) {
-	std::string	level_string[4];
+	std::string	level_string[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	typedef void (Karen::*ptrMemFunc) (void);
-	Karen karen;
 
-	ptrMemFunc level_fct[4];
-	level_fct[0] = &Karen::debug;
-	level_string[0] = "DEBUG";
-	level_fct[1] = &Karen::info;
-	level_string[1] = "INFO";
-	level_fct[2] = &Karen::warning;
-	level_string[2] = "WARNING";
-	level_fct[3] = &Karen::error;
-	level_string[3] = "ERROR";
+	ptrMemFunc level_fct[4] = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
 
 	for (int i = 0 ; i < 4 ; i++)
 		if (level_string[i] == level)
 		{
-			(karen.*level_fct[i])();
-			break;
+			(this->*level_fct[i])();
+			return;
 		}
+	std::cout << "ERROR LEVEL" << std::endl;
 }

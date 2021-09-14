@@ -7,9 +7,9 @@ public:
     HumanA(std::string name, Weapon &weapon);
     ~HumanA();
     void        attack();
-    std::string getName();
+    const std::string getName();
     void        setName(std::string name);
-    Weapon      getWeapon();
+    const Weapon      getWeapon();
     void        setWeapon(Weapon weapon);
 private:
     Weapon &_weapon;

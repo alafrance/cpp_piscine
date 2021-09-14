@@ -25,32 +25,34 @@ void Karen::error(void) {
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
+void	Karen::display_level(std::string header, ptrMemFunc func) {
+	std::cout << "[" << header << "]" << std::endl;
+	(this->*func)();
+	std::cout << std::endl; 
+}
+
 void Karen::complain( std::string level ) {
-	std::string	level_string[4];
-	typedef void (Karen::*ptrMemFunc) (void);
-	Karen karen;
 
-	ptrMemFunc level_fct[4];
-	level_fct[0] = &Karen::debug;
-	level_string[0] = "DEBUG";
-	level_fct[1] = &Karen::info;
-	level_string[1] = "INFO";
-	level_fct[2] = &Karen::warning;
-	level_string[2] = "WARNING";
-	level_fct[3] = &Karen::error;
-	level_string[3] = "ERROR";
-
-	for (int i = 0 ; i < 4 ; i++)
-		if (level_string[i] == level)
-		{
-			for (int j = i ; j < 4 ; j++)
-			{
-				std::cout << "[" << level_string[j] << "]" << std::endl;
-				(karen.*level_fct[j])();
-				if (j != 3)
-					std::cout << std::endl;
-			}
-			return ;
-		}
-	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	int i = 0;
+	std::string	level_string[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	ptrMemFunc level_fct[4] = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
+	for ( i = 0 ; i < 4 ; i++){
+		if (level == level_string[i])
+			break;
+	}
+	switch (i)
+	{
+		case 0:
+			display_level(level_string[0], level_fct[0]);
+		case 1:
+			display_level(level_string[1], level_fct[1]);
+		case 2:
+			display_level(level_string[2], level_fct[2]);
+		case 3:
+			display_level(level_string[3], level_fct[3]);
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
+	}
 }
