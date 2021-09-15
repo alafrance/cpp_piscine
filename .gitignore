@@ -3,3 +3,7 @@ bin
 .vscode
 */bin
 */*.o
+*/*/*/*.o
+*/*/*/*/*.o
+.DS_Store
+
