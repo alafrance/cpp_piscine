@@ -4,6 +4,10 @@ Fixed::Fixed(void): _num(0){
 	std::cout << "Default constructor called" << std::endl;
 }
 
+Fixed::Fixed(int n): _num(n) {
+	std::cout << "Default constructor called" << std::endl;
+}
+
 Fixed::~Fixed(void){
 	std::cout << "Destructor called" << std::endl;
 }
@@ -26,6 +30,12 @@ int		Fixed::getRawBits(void) const {
 Fixed & Fixed::operator=(Fixed const& rhs) {
 	std::cout << "Assignation operator called" << std::endl;
 	_num = rhs.getRawBits();
+	return *this;
+}
+
+Fixed & Fixed::operator=(int const& n) {
+	std::cout << "Assignation operator called" << std::endl;
+	_num = n;
 	return *this;
 }
 
