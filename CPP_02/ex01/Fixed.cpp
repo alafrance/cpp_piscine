@@ -1,11 +1,20 @@
 #include "Fixed.hpp"
+#include <cmath>
 
+const int Fixed::fractional = 8;
+
+/* CONSTRUCTOR AND DESTRUCTOR */
 Fixed::Fixed(void): _num(0){
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int n): _num(n) {
-	std::cout << "Default constructor called" << std::endl;
+Fixed::Fixed(int n): _num(n * pow(2, fractional)) {
+	std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(float n){
+	_num = roundf(n * pow(2, fractional));
+	std::cout << "Float constructor called " <<  std::endl;
 }
 
 Fixed::~Fixed(void){
@@ -17,31 +26,32 @@ Fixed::Fixed(Fixed const& src){
 	_num = src.getRawBits();
 }
 
+/* ACCESSORS */
+
 void	Fixed::setRawBits(int num) {
-	std::cout << "setRawBits member function called" << std::endl;
 	_num = num;
 }
 
 int		Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_num);
 }
 
+int		Fixed::toInt(void) const {
+	return (int)roundf(_num / pow(2, fractional));
+}
+
+float	Fixed::toFloat(void) const {
+	return ((float)_num / pow(2, fractional));
+}
+
+/* OPERATOR */
 Fixed & Fixed::operator=(Fixed const& rhs) {
 	std::cout << "Assignation operator called" << std::endl;
 	_num = rhs.getRawBits();
 	return *this;
 }
 
-Fixed & Fixed::operator=(int const& n) {
-	std::cout << "Assignation operator called" << std::endl;
-	_num = n;
-	return *this;
-}
-
 std::ostream	& operator<<(std::ostream &o, Fixed const& rhs) {
-	o << rhs.getRawBits();
+	o << rhs.toFloat();
 	return o;
 }
-
-const int Fixed::fractional = 8;

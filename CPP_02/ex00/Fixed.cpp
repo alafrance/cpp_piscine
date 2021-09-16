@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 
+/* CONSTRUCTOR AND DESTRUCTOR */
 Fixed::Fixed(void): _num(0){
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -13,6 +14,7 @@ Fixed::Fixed(Fixed const& src){
 	_num = src.getRawBits();
 }
 
+/* ACCESSORS */
 void	Fixed::setRawBits(int num) {
 	std::cout << "setRawBits member function called" << std::endl;
 	_num = num;
@@ -23,6 +25,7 @@ int		Fixed::getRawBits(void) const {
 	return (this->_num);
 }
 
+/* OPERATOR */
 Fixed & Fixed::operator=(Fixed const& rhs) {
 	std::cout << "Assignation operator called" << std::endl;
 	_num = rhs.getRawBits();
