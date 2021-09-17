@@ -7,15 +7,15 @@ public:
 	Fixed();
 	Fixed(Fixed const& src);
 	~Fixed();
-	Fixed(int n);
-	Fixed(float n);
+	Fixed(const int n);
+	Fixed(const float n);
 	int		getRawBits(void) const;
-	void	setRawBits(int num);
+	void	setRawBits(int raw);
 	int		toInt(void) const ;
 	float	toFloat(void) const ;
 	Fixed&	operator=(Fixed const& rhs);
 private:
-	int _num;
+	int _raw;
 	static const int fractional;
 };
 

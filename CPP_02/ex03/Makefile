@@ -6,15 +6,15 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/09/17 11:25:11 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/09/17 13:05:57 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= fixed
 
-FILES			= main.cpp Fixed.cpp
+FILES			= main.cpp Fixed.cpp Point.cpp bsp.cpp
 
-INC_FILES		= Fixed.hpp
+INC_FILES		= Fixed.hpp Point.hpp
 INC_PATH		= .
 INC				= $(addprefix ${INC_PATH}/, ${INC_FILES})
 

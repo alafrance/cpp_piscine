@@ -5,24 +5,19 @@ const int Fixed::fractional = 8;
 
 /* CONSTRUCTOR AND DESTRUCTOR */
 Fixed::Fixed(void): _raw(0){
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int n): _raw(n * pow(2, fractional)) {
-	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float n){
 	_raw = roundf(n * pow(2, fractional));
-	std::cout << "Float constructor called " << std::endl;
 }
 
 Fixed::~Fixed(void){
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const& src){
-	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
@@ -46,7 +41,6 @@ float	Fixed::toFloat(void) const {
 
 /* OPERATOR */
 Fixed & Fixed::operator=(Fixed const& rhs) {
-	std::cout << "Assignation operator called " << std::endl;
 	_raw = rhs.getRawBits();
 	return *this;
 }
@@ -90,19 +84,26 @@ bool	Fixed::operator!=(Fixed const& rhs) {
 /* 	ARITHMETIC OPERATORS */
 
 Fixed	Fixed::operator+(Fixed const& rhs) {
-	return ((_raw + rhs.getRawBits()) / (int)powf(2, 8));
+	return ((_raw + rhs.getRawBits()) / powf(2, 8));
 }
 
 Fixed	Fixed::operator-(Fixed const& rhs) {
-	return ((_raw - rhs.getRawBits()) / (int)powf(2, 8));
+	return ((_raw - rhs.getRawBits()) / powf(2, 8));
 }
 
 Fixed	Fixed::operator*(Fixed const& rhs) {
-	return (_raw * rhs.getRawBits() / (int)powf(2, 16));
+	return (_raw * rhs.getRawBits() / powf(2, 16));
 }
 
 Fixed Fixed::operator/(Fixed const& rhs) {
-	return (toFloat() / rhs.toFloat());
+	return ((float)_raw / (float)rhs.getRawBits());
+}
+
+Fixed	Fixed::operator-() {
+	Fixed fixed(*this);
+
+	fixed._raw = -fixed._raw;
+	return (fixed);
 }
 
 /* INCREMENT OPERATORS */

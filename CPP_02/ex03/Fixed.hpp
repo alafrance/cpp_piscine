@@ -26,6 +26,7 @@ public:
 	Fixed	operator-(Fixed const& rhs);
 	Fixed	operator*(Fixed const& rhs);
 	Fixed	operator/(Fixed const& rhs);
+	Fixed	operator-();
 	Fixed&	operator++(); // Prefix increment i++
 	Fixed	operator++(int); // Postfix increment operator ++i
 	Fixed&	operator--(); // Prefix decrement i--

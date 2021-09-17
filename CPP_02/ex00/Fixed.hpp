@@ -8,10 +8,10 @@ public:
 	Fixed(Fixed const& src);
 	~Fixed();
 	int		getRawBits(void) const;
-	void	setRawBits(int num);
+	void	setRawBits(int const raw);
 	Fixed&	operator=(Fixed const& rhs);
 private:
-	int _num;
+	int _raw;
 	static const int fractional;
 };
 std::ostream & operator<<(std::ostream &o, Fixed const& rhs);
