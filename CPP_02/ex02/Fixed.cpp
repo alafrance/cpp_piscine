@@ -90,19 +90,19 @@ bool	Fixed::operator!=(Fixed const& rhs) {
 /* 	ARITHMETIC OPERATORS */
 
 Fixed	Fixed::operator+(Fixed const& rhs) {
-	return ((_raw + rhs.getRawBits()) / (int)powf(2, 8));
+	return ((_raw + rhs.getRawBits()) / powf(2, 8));
 }
 
 Fixed	Fixed::operator-(Fixed const& rhs) {
-	return ((_raw - rhs.getRawBits()) / (int)powf(2, 8));
+	return ((_raw - rhs.getRawBits()) / powf(2, 8));
 }
 
 Fixed	Fixed::operator*(Fixed const& rhs) {
-	return (_raw * rhs.getRawBits() / (int)powf(2, 16));
+	return (_raw * rhs.getRawBits() / powf(2, 16));
 }
 
 Fixed Fixed::operator/(Fixed const& rhs) {
-	return (toFloat() / rhs.toFloat());
+	return ((float)_raw / (float)rhs.getRawBits());
 }
 
 /* INCREMENT OPERATORS */
@@ -127,4 +127,22 @@ Fixed	Fixed::operator--(int) {
 Fixed&	Fixed::operator--() {
 	_raw--;
 	return *this;
+}
+
+/* STATIC MEMBER */
+
+const Fixed& 	Fixed::min(const Fixed& val1, const Fixed& val2) {
+	return val1.getRawBits() < val2.getRawBits() ? val1 : val2;
+}
+
+Fixed& 			Fixed::min(Fixed& val1, Fixed& val2) {
+	return val1.getRawBits() < val2.getRawBits() ? val1 : val2;
+}
+
+const Fixed& 	Fixed::max(const Fixed& val1, const Fixed& val2) {
+	return val1.getRawBits() > val2.getRawBits() ? val1 : val2;
+}
+
+Fixed& 			Fixed::max(Fixed& val1, Fixed& val2) {
+	return val1.getRawBits() > val2.getRawBits() ? val1 : val2;
 }

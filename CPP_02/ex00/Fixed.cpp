@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+const int Fixed::fractional = 8;
 
 /* CONSTRUCTOR AND DESTRUCTOR */
 Fixed::Fixed(void): _raw(0){
@@ -31,10 +32,3 @@ Fixed & Fixed::operator=(Fixed const& rhs) {
 	_raw = rhs.getRawBits();
 	return *this;
 }
-
-std::ostream	& operator<<(std::ostream &o, Fixed const& rhs) {
-	o << rhs.getRawBits();
-	return o;
-}
-
-const int Fixed::fractional = 8;

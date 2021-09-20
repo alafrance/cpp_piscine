@@ -14,6 +14,5 @@ private:
 	int _raw;
 	static const int fractional;
 };
-std::ostream & operator<<(std::ostream &o, Fixed const& rhs);
 
 #endif

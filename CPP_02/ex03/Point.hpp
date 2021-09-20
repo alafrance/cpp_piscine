@@ -10,12 +10,11 @@ public:
 	Point(Fixed x, Fixed y);
 	~Point();
 	Point& operator=(Point const& rhs);
-	Point	operator-();
 	Fixed	getX(void) const;
 	Fixed	getY(void) const;
 private:
-	Fixed _x;
-	Fixed _y;
+	Fixed const _x;
+	Fixed const _y;
 };
 
 #endif

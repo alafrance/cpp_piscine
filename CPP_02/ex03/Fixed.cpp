@@ -99,13 +99,6 @@ Fixed Fixed::operator/(Fixed const& rhs) {
 	return ((float)_raw / (float)rhs.getRawBits());
 }
 
-Fixed	Fixed::operator-() {
-	Fixed fixed(*this);
-
-	fixed._raw = -fixed._raw;
-	return (fixed);
-}
-
 /* INCREMENT OPERATORS */
 
 Fixed	Fixed::operator++(int) {
@@ -128,4 +121,22 @@ Fixed	Fixed::operator--(int) {
 Fixed&	Fixed::operator--() {
 	_raw--;
 	return *this;
+}
+
+/* STATIC MEMBER */
+
+const Fixed& 	Fixed::min(const Fixed& val1, const Fixed& val2) {
+	return val1.getRawBits() < val2.getRawBits() ? val1 : val2;
+}
+
+Fixed& 			Fixed::min(Fixed& val1, Fixed& val2) {
+	return val1.getRawBits() < val2.getRawBits() ? val1 : val2;
+}
+
+const Fixed& 	Fixed::max(const Fixed& val1, const Fixed& val2) {
+	return val1.getRawBits() > val2.getRawBits() ? val1 : val2;
+}
+
+Fixed& 			Fixed::max(Fixed& val1, Fixed& val2) {
+	return val1.getRawBits() > val2.getRawBits() ? val1 : val2;
 }
