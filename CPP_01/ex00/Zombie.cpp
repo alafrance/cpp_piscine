@@ -12,7 +12,7 @@ void    Zombie::announce() {
 	std::cout << _name << " BraiiiiiiinnnzzzZ" << std::endl;
 }
 
-std::string Zombie::getName() {
+const std::string Zombie::getName() {
 	return _name;
 }
 
