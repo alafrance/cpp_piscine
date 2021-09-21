@@ -6,11 +6,11 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/09/21 15:08:45 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/09/21 18:21:03 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= scavtrap
+NAME			= diamondtrap
 
 FILES			= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
