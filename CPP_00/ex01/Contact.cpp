@@ -2,7 +2,6 @@
 # include <iostream>
 
 Contact::Contact(){
-
 }
 
 bool	Contact::_isDigit(std::string str) {
