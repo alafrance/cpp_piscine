@@ -6,6 +6,8 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
+
 bool	strIsDigit(std::string str) {
 	size_t i = 0;
 	if (str[0] == '-')
@@ -47,16 +49,6 @@ Bureaucrat	initBureauCrat() {
 	return(bureaucrat);
 }
 
-
-//AForm		initForm() {
-//	std::string bufName = askSomething("Enter AForm's name's : ");
-//	int			bufGradeSigned = askNumber("Enter grade to signed : ");
-//	int			bufGradeExecuted = askNumber("Enter grade to executed : ");
-//
-//	AForm form(bufName, 0, bufGradeSigned, bufGradeExecuted);
-//	return form;
-//}
-
 int main() {
 	try {
 		Bureaucrat bureaucrat(initBureauCrat());
@@ -67,18 +59,12 @@ int main() {
 		std::cout << "Oh my god ! Karen tells to your boss that you forgot a rendez-vous !\n";
 		bureaucrat.decrementGrade();
 		std::cout << "Your grade : " << bureaucrat.getGrade() << std::endl;
-		ShrubberyCreationForm shruberry("the iron giant");
-		std::cout << shruberry.getName() << "was created" << std::endl;
-		RobotomyRequestForm robot("Mr robot");
-		std::cout << robot.getName() << "was created" << std::endl;
-		PresidentialPardonForm macron("Manu le sang");
-		std::cout << macron.getName() << "was created" << std::endl;
-		bureaucrat.executeForm(shruberry);
-		std::cout << "\n";
-		bureaucrat.executeForm(robot);
-		std::cout << "\n";
-		bureaucrat.executeForm(macron);
-
+		Intern someRandomIntern;
+		AForm *rff = someRandomIntern.makeForm("robotomy request", "Bender");
+		rff->execute(bureaucrat);
+		delete rff;
+		AForm *rf2 = someRandomIntern.makeForm("blablou", "bliblou");
+		rf2->execute(bureaucrat);
 	}
 	catch (Bureaucrat::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;
@@ -90,6 +76,9 @@ int main() {
 		std::cout << e.what() << std::endl;
 	}
 	catch (AForm::GradeTooLowException& e) {
+		std::cout << e.what() << std::endl;
+	}
+	catch (Intern::RequestFormException& e) {
 		std::cout << e.what() << std::endl;
 	}
 }

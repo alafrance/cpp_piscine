@@ -47,16 +47,6 @@ Bureaucrat	initBureauCrat() {
 	return(bureaucrat);
 }
 
-
-//AForm		initForm() {
-//	std::string bufName = askSomething("Enter AForm's name's : ");
-//	int			bufGradeSigned = askNumber("Enter grade to signed : ");
-//	int			bufGradeExecuted = askNumber("Enter grade to executed : ");
-//
-//	AForm form(bufName, 0, bufGradeSigned, bufGradeExecuted);
-//	return form;
-//}
-
 int main() {
 	try {
 		Bureaucrat bureaucrat(initBureauCrat());
