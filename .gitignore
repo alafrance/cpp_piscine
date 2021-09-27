@@ -6,4 +6,8 @@ bin
 */*/*/*.o
 */*/*/*/*.o
 .DS_Store
-
+.idea
+.idea/*
+*/.idea/*
+*/*/.idea
+*/*/.idea/*
