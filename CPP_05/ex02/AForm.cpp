@@ -64,6 +64,8 @@ void AForm::beSigned(Bureaucrat bureaucrat) {
 }
 
 void AForm::testExecute(int grade) const {
+	if (!this->isSigned)
+		throw AForm::IsNotSignedException();
 	if (this->gradeToExecuted < grade)
 	{
 		std::cout << "GradeToExecuted : \n";

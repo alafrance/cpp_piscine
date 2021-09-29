@@ -42,6 +42,12 @@ public:
 			return "Your grade is too high";
 		}
 	} GradeTooHigh;
+	class IsNotSignedException : public std::exception {
+	public:
+		const char* what() const throw () {
+			return "Your form is not signed";
+		}
+	};
 };
 std::ostream &operator<<(std::ostream &os, const AForm &form);
 

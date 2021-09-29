@@ -9,5 +9,4 @@ bin
 .idea
 .idea/*
 */.idea/*
-*/*/.idea
-*/*/.idea/*
+**/.idea

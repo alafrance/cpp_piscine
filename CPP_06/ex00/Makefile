@@ -6,15 +6,15 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/09/28 12:34:48 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/09/29 14:42:45 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= bureaucrat
+NAME			= cast
 
-FILES			= main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+FILES			= main.cpp
 
-INC_FILES		= Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
+INC_FILES		= 
 INC_PATH		= .
 INC				= $(addprefix ${INC_PATH}/, ${INC_FILES})
 
@@ -26,25 +26,25 @@ BIN				= $(SRC:%.cpp=$(BIN_PATH)/%.o)
 
 CC				= clang++
 RM				= rm -rf
-FLAGS			= -std=c++98 -Wall -Wextra  -Werror
+FLAGS			= -std=c++98 -Wall -Wextra  -Werror -Wconversion
 
 all:  			${NAME}
 
 init:
-				$(shell mkdir -p $(BIN_PATH))
+				@$(shell mkdir -p $(BIN_PATH))
 
 
 $(BIN): $(BIN_PATH)/%.o: %.cpp ${INC}
-				mkdir -p $(@D)
-				$(CC) $(FLAGS) -c $< -o $@
+				@mkdir -p $(@D)
+				@$(CC) $(FLAGS) -c $< -o $@
 
-${NAME}:		init ${BIN}
-				${CC} ${FLAGS} ${BIN} -I ${INC_PATH} -o ${NAME}
+${NAME}: 		init ${BIN}
+				@${CC} ${FLAGS} ${BIN} -I ${INC_PATH} -o ${NAME}
 
 clean:
-				${RM} ${BIN_PATH}
+				@${RM} ${BIN_PATH}			
 
 fclean:			clean
-				${RM} ${NAME}
+				@${RM} ${NAME}
 				
 re:				fclean all

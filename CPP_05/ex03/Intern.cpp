@@ -23,12 +23,11 @@ Intern &Intern::operator=(Intern const &inst) {
 
 AForm *Intern::makeForm(std::string request, std::string target) {
 	AForm* form;
-	std::string	request_str[3] = {"robotomy request", "shrubbery request", "presidential request"};
-	std::string	form_str[3] = {"robotomy", "shrubbery", "presidential"};
+	std::string	request_str[3] = {"robotomy request", "presidential pardon", "shrubbery creation"};
 	int i = 0;
 
 	for (i = 0; i < 3; ++i) {
-		if (request_str[i] == request || form_str[i] == request)
+		if (request_str[i] == request)
 			break;
 	}
 	switch (i) {

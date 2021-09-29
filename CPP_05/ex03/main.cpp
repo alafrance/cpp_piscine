@@ -61,9 +61,11 @@ int main() {
 		std::cout << "Your grade : " << bureaucrat.getGrade() << std::endl;
 		Intern someRandomIntern;
 		AForm *rff = someRandomIntern.makeForm("robotomy request", "Bender");
+		rff->beSigned(bureaucrat);
 		rff->execute(bureaucrat);
 		delete rff;
 		AForm *rf2 = someRandomIntern.makeForm("blablou", "bliblou");
+		rf2->beSigned(bureaucrat);
 		rf2->execute(bureaucrat);
 	}
 	catch (Bureaucrat::GradeTooHighException& e) {
@@ -76,6 +78,9 @@ int main() {
 		std::cout << e.what() << std::endl;
 	}
 	catch (AForm::GradeTooLowException& e) {
+		std::cout << e.what() << std::endl;
+	}
+	catch (AForm::IsNotSignedException& e) {
 		std::cout << e.what() << std::endl;
 	}
 	catch (Intern::RequestFormException& e) {

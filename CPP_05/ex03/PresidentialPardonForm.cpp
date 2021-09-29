@@ -13,7 +13,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm(target
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {}
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) {
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src): AForm(src){
 	*this = src;
 }
 

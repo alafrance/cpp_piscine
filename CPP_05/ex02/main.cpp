@@ -58,15 +58,18 @@ int main() {
 		bureaucrat.decrementGrade();
 		std::cout << "Your grade : " << bureaucrat.getGrade() << std::endl;
 		ShrubberyCreationForm shruberry("the iron giant");
-		std::cout << shruberry.getName() << "was created" << std::endl;
+		std::cout << shruberry.getName() << " was created" << std::endl;
 		RobotomyRequestForm robot("Mr robot");
-		std::cout << robot.getName() << "was created" << std::endl;
+		std::cout << robot.getName() << " was created" << std::endl;
 		PresidentialPardonForm macron("Manu le sang");
-		std::cout << macron.getName() << "was created" << std::endl;
+		std::cout << macron.getName() << " was created" << std::endl;
+		shruberry.beSigned(bureaucrat);
 		bureaucrat.executeForm(shruberry);
 		std::cout << "\n";
+		robot.beSigned(bureaucrat);
 		bureaucrat.executeForm(robot);
 		std::cout << "\n";
+		macron.beSigned(bureaucrat);
 		bureaucrat.executeForm(macron);
 
 	}
@@ -82,6 +85,10 @@ int main() {
 	catch (AForm::GradeTooLowException& e) {
 		std::cout << e.what() << std::endl;
 	}
+	catch (AForm::IsNotSignedException& e) {
+		std::cout << e.what() << std::endl;
+	}
+
 }
 
 

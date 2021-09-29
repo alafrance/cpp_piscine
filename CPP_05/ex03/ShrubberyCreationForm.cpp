@@ -3,7 +3,7 @@
 //
 
 #include "ShrubberyCreationForm.hpp"
-
+#include <fstream>
 /* CANONICAL FORM */
 ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("unknown", 0, 145, 137) {}
 
@@ -11,7 +11,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm(target, 
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) {
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src): AForm(src) {
 	*this = src;
 }
 
@@ -22,41 +22,43 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	testExecute(executor.getGrade());
-	std::cout << "              _{\\ _{\\{\\/}/}/}__" << std::endl;
-	std::cout << "             {/{/\\}{/{/\\}(\\}{/\\} _" << std::endl;
-	std::cout << "            {/{/\\}{/{/\\}(_)\\}{/{/\\}  _" << std::endl;
-	std::cout << "         {\\{/(\\}\\}{/{/\\}\\}{/){/\\}\\} /\\}" << std::endl;
-	std::cout << "        {/{/(_)/}{\\{/)\\}{\\(_){/}/}/}/}" << std::endl;
-	std::cout << "       _{\\{/{/{\\{/{/(_)/}/}/}{\\(/}/}/}" << std::endl;
-	std::cout << "      {/{/{\\{\\{\\(/}{\\{\\/}/}{\\}(_){\\/}\\}" << std::endl;
-	std::cout << "      _{\\{/{\\{/(_)\\}/}{/{/{/\\}\\})\\}{/\\}" << std::endl;
-	std::cout << "     {/{/{\\{\\(/}{/{\\{\\{\\/})/}{\\(_)/}/}\\}" << std::endl;
-	std::cout << "      {\\{\\/}(_){\\{\\{\\/}/}(_){\\/}{\\/}/})/}" << std::endl;
-	std::cout << "       {/{\\{\\/}{/{\\{\\{\\/}/}{\\{\\/}/}\\}(_)" << std::endl;
-	std::cout << "      {/{\\{\\/}{/){\\{\\{\\/}/}{\\{\\(/}/}\\}/}" << std::endl;
-	std::cout << "       {/{\\{\\/}(_){\\{\\{\\(/}/}{\\(_)/}/}\\}" << std::endl;
-	std::cout << "         {/({/{\\{/{\\{\\/}(_){\\/}/}\\}/}(\\}" << std::endl;
-	std::cout << "          (_){/{\\/}{\\{\\/}/}{\\{\\)/}/}(_)" << std::endl;
-	std::cout << "            {/{/{\\{\\/}{/{\\{\\{\\(_)/}" << std::endl;
-	std::cout << "             {/{\\{\\{\\/}/}{\\{\\\\}/}" << std::endl;
-	std::cout << "              {){/ {\\/}{\\/} \\}\\}" << std::endl;
-	std::cout << "              (_)  \\.-'.-/" << std::endl;
-	std::cout << "          __...--- |'-.-'| --...__" << std::endl;
-	std::cout << "   _...--\"   .-'   |'-.-'|  ' -.  \"\"--..__" << std::endl;
-	std::cout << " -\"    ' .  . '    |.'-._| '  . .  '   alaf" << std::endl;
-	std::cout << " .  '-  '    .--'  | '-.'|    .  '  . '" << std::endl;
-	std::cout << "          ' ..     |'-_.-|" << std::endl;
-	std::cout << "  .  '  .       _.-|-._ -|-._  .  '  ." << std::endl;
-	std::cout << "              .'   |'- .-|   '." << std::endl;
-	std::cout << "  ..-'   ' .  '.   `-._.-'   .'  '  - ." << std::endl;
-	std::cout << "   .-' '        '-._______.-'     '  ." << std::endl;
-	std::cout << "        .      ~," << std::endl;
-	std::cout << "    .       .   |\\   .    ' '-." << std::endl;
-	std::cout << "    ___________/  \\____________" << std::endl;
-	std::cout << "   /  Why is it, when you want \\" << std::endl;
-	std::cout << "  |  something, it is so damn   |" << std::endl;
-	std::cout << "  |    much work to get it?     |" << std::endl;
-	std::cout << "   \\___________________________/" << std::endl;
+	std::cout << "create file\n";
+	std::ofstream file(getName() + "_shrubbery");
+	file << "              _{\\ _{\\{\\/}/}/}__" << std::endl;
+	file << "             {/{/\\}{/{/\\}(\\}{/\\} _" << std::endl;
+	file << "            {/{/\\}{/{/\\}(_)\\}{/{/\\}  _" << std::endl;
+	file << "         {\\{/(\\}\\}{/{/\\}\\}{/){/\\}\\} /\\}" << std::endl;
+	file << "        {/{/(_)/}{\\{/)\\}{\\(_){/}/}/}/}" << std::endl;
+	file << "       _{\\{/{/{\\{/{/(_)/}/}/}{\\(/}/}/}" << std::endl;
+	file << "      {/{/{\\{\\{\\(/}{\\{\\/}/}{\\}(_){\\/}\\}" << std::endl;
+	file << "      _{\\{/{\\{/(_)\\}/}{/{/{/\\}\\})\\}{/\\}" << std::endl;
+	file << "     {/{/{\\{\\(/}{/{\\{\\{\\/})/}{\\(_)/}/}\\}" << std::endl;
+	file << "      {\\{\\/}(_){\\{\\{\\/}/}(_){\\/}{\\/}/})/}" << std::endl;
+	file << "       {/{\\{\\/}{/{\\{\\{\\/}/}{\\{\\/}/}\\}(_)" << std::endl;
+	file << "      {/{\\{\\/}{/){\\{\\{\\/}/}{\\{\\(/}/}\\}/}" << std::endl;
+	file << "       {/{\\{\\/}(_){\\{\\{\\(/}/}{\\(_)/}/}\\}" << std::endl;
+	file << "         {/({/{\\{/{\\{\\/}(_){\\/}/}\\}/}(\\}" << std::endl;
+	file << "          (_){/{\\/}{\\{\\/}/}{\\{\\)/}/}(_)" << std::endl;
+	file << "            {/{/{\\{\\/}{/{\\{\\{\\(_)/}" << std::endl;
+	file << "             {/{\\{\\{\\/}/}{\\{\\\\}/}" << std::endl;
+	file << "              {){/ {\\/}{\\/} \\}\\}" << std::endl;
+	file << "              (_)  \\.-'.-/" << std::endl;
+	file << "          __...--- |'-.-'| --...__" << std::endl;
+	file << "   _...--\"   .-'   |'-.-'|  ' -.  \"\"--..__" << std::endl;
+	file << " -\"    ' .  . '    |.'-._| '  . .  '   alaf" << std::endl;
+	file << " .  '-  '    .--'  | '-.'|    .  '  . '" << std::endl;
+	file << "          ' ..     |'-_.-|" << std::endl;
+	file << "  .  '  .       _.-|-._ -|-._  .  '  ." << std::endl;
+	file << "              .'   |'- .-|   '." << std::endl;
+	file << "  ..-'   ' .  '.   `-._.-'   .'  '  - ." << std::endl;
+	file << "   .-' '        '-._______.-'     '  ." << std::endl;
+	file << "        .      ~," << std::endl;
+	file << "    .       .   |\\   .    ' '-." << std::endl;
+	file << "    ___________/  \\____________" << std::endl;
+	file << "   /  Why is it, when you want \\" << std::endl;
+	file << "  |  something, it is so damn   |" << std::endl;
+	file << "  |    much work to get it?     |" << std::endl;
+	file << "   \\___________________________/" << std::endl;
 }
 /* ACCESSORS */
 
