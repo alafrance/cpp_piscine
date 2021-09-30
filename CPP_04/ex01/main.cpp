@@ -24,7 +24,7 @@ int main()
 		Dog dog2 = dog;
 		/* CHANGE IDEAS TO SEE DEEP COPY */
 		ideas[0] = "hello";
-		brain1->setIdeas(ideas, 4);
+		brain2->setIdeas(ideas, 4);
 		dog.setBrain(brain2);
 		/* DISPLAY THE IDEAS */
 		dog2.getBrain()->printIdeas();
