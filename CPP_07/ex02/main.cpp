@@ -2,6 +2,28 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
+int main() {
+	Array<int> a(5);
+	Array<int> b(a);
+	try {
+		for (int i = 0; i < 5; ++i) {
+			a[i] = i;
+		}
+		for (int i = 0; i < 5; ++i) {
+			b[i] = 
+		}
+		for (int i = 0; i < 5; ++i) {
+			std::cout << a[i] << std::endl;
+		}
+		std::cout << "size of a : " << a.size() << std::endl;
+		a[-1];
+	}
+	catch (Array<int>::IncorrectIndexException& e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+//
 //int main(int, char**)
 //{
 //	Array<int> numbers(MAX_VAL);
@@ -52,9 +74,3 @@
 //	return 0;
 //}
 
-int main() {
-	Array<int> a(5);
-	Array<int> b(a);
-	a.display();
-//	b.display_first_elements();
-}

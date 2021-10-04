@@ -1,4 +1,5 @@
 #include "Brain.hpp"
+
 /* CANONICAL FORM */
 Brain::Brain(void){
 	std::cout << "Default constructor called (Brain)\n";
@@ -13,7 +14,9 @@ Brain::Brain(Brain const& src){
 }
 
 Brain&	Brain::operator=(Brain const& rhs){
-	std::copy(rhs._ideas, rhs._ideas + 100, _ideas);
+	for (int i = 0; i < 100; ++i) {
+		_ideas[i] = rhs._ideas[i];
+	}
 	return *this;
 }
 /* ACCESSORS */

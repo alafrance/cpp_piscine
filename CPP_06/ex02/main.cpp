@@ -27,12 +27,24 @@ void identify(Base* p) {
 }
 
 void identify(Base& p) {
-	if (dynamic_cast<A*>(&p))
+	try {
+		(void)dynamic_cast<A&>(p);
 		std::cout << "A";
-	else if (dynamic_cast<B*>(&p))
+	}
+	catch (std::bad_cast &b) {
+	}
+	try {
+		(void)dynamic_cast<B&>(p);
 		std::cout << "B";
-	else if (dynamic_cast<C*>(&p))
+	}
+	catch (std::bad_cast &b) {
+	}
+	try {
+		(void)dynamic_cast<C&>(p);
 		std::cout << "C";
+	}
+	catch (std::bad_cast& b) {
+	}
 	std::cout << std::endl;
 }
 
@@ -40,7 +52,7 @@ int main() {
 	srand(static_cast<unsigned>(time(0)));
 	Base * g = generate();
 	identify(*g);
-	identify(generate());
+	identify(g);
 	identify(generate());
 	identify(generate());
 	identify(generate());

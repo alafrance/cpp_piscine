@@ -12,7 +12,7 @@
 
 NAME			= template
 
-FILES			= main.cpp 
+FILES			= main.cpp
 
 INC_FILES		= Array.hpp
 INC_PATH		= .

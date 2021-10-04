@@ -5,7 +5,7 @@ bool 	isDigitStr(std::string str) {
 	size_t i = 0;
 	if (str[0] == '-')
 		i++;
-	for (i = i; i < str.length(); ++i) {
+	for ((void)i; i < str.length(); ++i) {
 		if (!isdigit(str[i]) && str[i] != '.')
 			return (false);
 	}
@@ -49,11 +49,11 @@ int main(int ac, char **av) {
 	else
 		std::cout << static_cast<int>(a) << std::endl;
 	std::cout << "float: " << static_cast<float>(a);
-	if (!std::fmod(a, 1))
+	if (!static_cast<bool>(std::fmod(a, 1)))
 		std::cout << ".0";
 	std::cout << "f\n";
 	std::cout << "double: " << static_cast<double>(a);
-	if (!std::fmod(a, 1))
+	if (!static_cast<bool>(std::fmod(a, 1)))
 		std::cout << ".0";
 	std::cout << std::endl;
 	return 1;

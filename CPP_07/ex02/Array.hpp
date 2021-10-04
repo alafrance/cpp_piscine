@@ -11,37 +11,51 @@ class Array
 {
 private:
 	T *array;
-	int size;
+	unsigned int n;
 public:
+	// CONSTRUCTOR
 	Array() {
 		array = new T;
-		size = 0;
+		n = 0;
 	};
-	explicit Array(unsigned int n ) {
+	Array(Array const &src): n(src.n) {
 		array = new T[n];
-		size = n;
+		*this = src;
+	}
+	explicit Array(unsigned int n ) : n(n) {
+		array = new T[n];
 		for (unsigned int i = 0; i < n; ++i) {
 			array[i] = 0;
 		}
 	};
+	// DESTRUCTOR
+	virtual ~Array() {
+		delete[]  array;
+	};
+	//OPERATOR
 	Array &operator=(Array const &inst) {
-		(void)inst;
-		//		std::cout << std::begin(inst.array);
-		//		std::copy(std::begin(inst.array), std::end(inst.array), std::begin(array));
+		for (unsigned int i = 0 ; i < n ; i++) {
+			array[i] = inst.array[i];
+		}
 		return (*this);
 	};
-	Array(Array const &src) {
-		*this = src;
+	int&	operator[](unsigned int index) {
+		if (index >= n)
+			throw incorrectIndex;
+		return array[index];
 	}
-	virtual ~Array() {
-		delete array;
-	};
-	void display() {
-		for (int i = 0; i < size; ++i) {
-			std::cout << array[i] << std::endl;
-
+	// UTILITY
+	unsigned int size() {
+		return n;
+	}
+	// EXCEPTION
+	class IncorrectIndexException : public std::exception {
+	public:
+		const char * what () const throw ()
+		{
+			return "Wrong Index. Please try again";
 		}
-	}
+	} incorrectIndex;
 };
 
 #endif //EX02_ARRAY_HPP

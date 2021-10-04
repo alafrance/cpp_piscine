@@ -6,7 +6,7 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/09/22 14:55:22 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/10/04 12:55:10 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,11 @@ init:
 
 
 $(BIN): $(BIN_PATH)/%.o: %.cpp ${INC}
-				mkdir -p $(@D)
+				@mkdir -p $(@D)
 				$(CC) $(FLAGS) -c $< -o $@
 
 ${NAME}: 		init ${BIN}
-				${CC} ${FLAGS} ${BIN} -I ${INC_PATH} -o ${NAME}
+				@${CC} ${FLAGS} ${BIN} -I ${INC_PATH} -o ${NAME}
 
 clean:
 				${RM} ${BIN_PATH}
