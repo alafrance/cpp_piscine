@@ -10,7 +10,7 @@ int main() {
 			a[i] = i;
 		}
 		for (int i = 0; i < 5; ++i) {
-			b[i] = 
+			b[i] = i;
 		}
 		for (int i = 0; i < 5; ++i) {
 			std::cout << a[i] << std::endl;
@@ -23,7 +23,6 @@ int main() {
 	}
 }
 
-//
 //int main(int, char**)
 //{
 //	Array<int> numbers(MAX_VAL);

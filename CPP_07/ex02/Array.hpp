@@ -39,7 +39,7 @@ public:
 		}
 		return (*this);
 	};
-	int&	operator[](unsigned int index) {
+	T&	operator[](unsigned int index) {
 		if (index >= n)
 			throw incorrectIndex;
 		return array[index];
@@ -57,5 +57,4 @@ public:
 		}
 	} incorrectIndex;
 };
-
 #endif //EX02_ARRAY_HPP
