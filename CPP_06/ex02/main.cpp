@@ -11,9 +11,8 @@ Base * generate(void) {
 		return (new A);
 	else if (result == 1)
 		return (new B);
-	else if (result == 2)
+	else
 		return (new C);
-	return (nullptr);
 }
 
 void identify(Base* p) {
@@ -31,19 +30,19 @@ void identify(Base& p) {
 		(void)dynamic_cast<A&>(p);
 		std::cout << "A";
 	}
-	catch (std::bad_cast &b) {
+	catch (std::exception &b) {
 	}
 	try {
 		(void)dynamic_cast<B&>(p);
-		std::cout << "B";
+			std::cout << "B";
 	}
-	catch (std::bad_cast &b) {
+	catch (std::exception &b) {
 	}
 	try {
 		(void)dynamic_cast<C&>(p);
-		std::cout << "C";
+			std::cout << "C";
 	}
-	catch (std::bad_cast& b) {
+	catch (std::exception& b) {
 	}
 	std::cout << std::endl;
 }

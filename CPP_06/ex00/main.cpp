@@ -6,8 +6,10 @@ bool 	isDigitStr(std::string str) {
 	if (str[0] == '-')
 		i++;
 	for ((void)i; i < str.length(); ++i) {
-		if (!isdigit(str[i]) && str[i] != '.')
-			return (false);
+		if (!(str[i] == 'f' && i + 1 == str.length())) {
+			if (!isdigit(str[i]) && str[i] != '.')
+				return (false);
+		}
 	}
 	return (true);
 }

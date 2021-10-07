@@ -6,15 +6,15 @@
 #    By: alafranc <alafranc@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 14:11:52 by alafranc          #+#    #+#              #
-#    Updated: 2021/10/07 13:23:47 by alafranc         ###   ########lyon.fr    #
+#    Updated: 2021/10/07 10:51:50 by alafranc         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= lastDay
 
-FILES			= span.cpp main.cpp
+FILES			= mutantstack.cpp main.cpp
 
-INC_FILES		= span.hpp
+INC_FILES		= mutantstack.hpp
 INC_PATH		= .
 INC				= $(addprefix ${INC_PATH}/, ${INC_FILES})
 
@@ -26,7 +26,7 @@ BIN				= $(SRC:%.cpp=$(BIN_PATH)/%.o)
 
 CC				= clang++
 RM				= rm -rf
-FLAGS			= -Wall -Wextra -Werror -std=c++98
+FLAGS			= -std=c++98 -Wall -Wextra  -Werror -Wconversion
 
 all:  			${NAME}
 
