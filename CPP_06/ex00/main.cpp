@@ -3,7 +3,7 @@
 
 bool 	isDigitStr(std::string str) {
 	size_t i = 0;
-	if (str[0] == '-')
+	if (str[0] == '-' || str[0] == '+')
 		i++;
 	for ((void)i; i < str.length(); ++i) {
 		if (!(str[i] == 'f' && i + 1 == str.length())) {

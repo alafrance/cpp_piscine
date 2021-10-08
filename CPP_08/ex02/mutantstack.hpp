@@ -9,8 +9,8 @@ template <typename T, typename Container = std::deque<T> >
 class MutantStack: public std::stack<T, Container> {
 private:
 public:
-	MutantStack() {}
-	MutantStack(MutantStack const& src): std::stack<T, Container>(src.c) { *this = src; }
+	MutantStack(): std::stack<T, Container>() {}
+	MutantStack(MutantStack const& src): std::stack<T, Container>() { *this = src; }
 	virtual ~MutantStack() {}
 	typedef typename std::stack<T, Container>::container_type::iterator iterator;
 	typedef typename std::stack<T, Container>::container_type::const_iterator const_iterator;
